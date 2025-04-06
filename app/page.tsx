@@ -39,7 +39,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">🧪 Prueba de Concepto - MCP</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">🧪 PoC - MCP</h1>
 
         <div className="flex flex-col items-center gap-4">
           <button
@@ -48,12 +48,12 @@ export default function HomePage() {
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-xl transition-all duration-300"
           >
             <Clock size={20} />
-            {loading ? 'Consultando...' : 'Obtener hora actual'}
+            {loading ? 'Let me think...' : 'Get current time'}
           </button>
 
           {time && (
             <div className="bg-green-100 text-green-800 px-4 py-2 rounded-xl text-center w-full">
-              🕒 Hora del servidor MCP: <strong>{time}</strong>
+              🕒 Time in MCP Server: <strong>{time}</strong>
             </div>
           )}
 
@@ -64,9 +64,9 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* Espacio futuro para más herramientas */}
+        {/* More tools in the future */}
         <div className="mt-8 text-sm text-gray-500 text-center">
-          Pronto: más herramientas conectadas por MCP
+          Coming soon: <strong>More tools</strong>
         </div>
       </div>
     </main>

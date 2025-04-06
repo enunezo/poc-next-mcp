@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'application/json' },
       });
     } catch (error) {
-      return new Response(JSON.stringify({ error: 'Fallo al llamar a MCP' }), {
+      return new Response(JSON.stringify({ error: 'Error calling MCP' }), {
         status: 500,
       });
     }

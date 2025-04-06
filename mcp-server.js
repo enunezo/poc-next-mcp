@@ -5,12 +5,12 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const port = 4242; // Puerto típico para servidores MCP
+const port = 4242; // MCP port
 
 const tools = {
   getTime: {
     name: 'getTime',
-    description: 'Devuelve la hora actual',
+    description: 'Get current time',
     parameters: [],
     handler: () => {
       return { time: new Date().toLocaleTimeString() };
@@ -18,17 +18,17 @@ const tools = {
   },
 };
 
-// Endpoint para lista de herramientas
+// Endpoint get tools
 app.get('/tools', (req, res) => {
   const toolList = Object.values(tools).map(({ handler, ...rest }) => rest);
   res.json({ tools: toolList });
 });
 
-// Endpoint para ejecutar una herramienta
+// Endpoint run tools
 app.post('/call', (req, res) => {
   const { tool, parameters } = req.body;
   if (!tools[tool]) {
-    return res.status(404).json({ error: 'Herramienta no encontrada' });
+    return res.status(404).json({ error: 'Tool not found' });
   }
 
   const result = tools[tool].handler(parameters);
@@ -36,5 +36,5 @@ app.post('/call', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor MCP corriendo en http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
